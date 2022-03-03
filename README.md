@@ -6,5 +6,4 @@ The main purpose of this repository is learn/practice with the majority componen
 ### Install dependencies
 `yarn`
 or
-
 `npm i`
