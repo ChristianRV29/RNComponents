@@ -22,3 +22,21 @@ export const homeStyles = StyleSheet.create({
     marginVertical: 8,
   },
 });
+
+export const animationStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  purpleBox: {
+    backgroundColor: '#5856D6',
+    width: 150,
+    height: 150,
+  },
+  purpleRed: {
+    backgroundColor: '#862f15',
+    width: 150,
+    height: 150,
+  },
+});
