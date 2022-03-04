@@ -1,16 +1,24 @@
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
-  home: {
+export const globalStyles = StyleSheet.create({
+  container: {
     flex: 1,
-    marginHorizontal: 20,
+    marginHorizontal: 25,
   },
-  listTitle: {
+});
+
+export const homeStyles = StyleSheet.create({
+  container: {
+    marginBottom: 15,
+  },
+  title: {
     fontSize: 35,
     fontWeight: 'bold',
     color: 'black',
   },
-  listMenuLabel: {
-    color: 'black',
+  separator: {
+    borderBottomWidth: 1,
+    opacity: 0.4,
+    marginVertical: 8,
   },
 });

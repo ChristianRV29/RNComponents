@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ItemProps } from '~src/@types/interfaces';
 import MenuItem from '~src/components/FlatList/MenuItem';
-import { styles } from '~src/theme/appTheme';
+import { globalStyles, homeStyles } from '~src/theme/appTheme';
 
 const menuItems: ItemProps[] = [
   {
@@ -24,20 +24,18 @@ const HomeScreen = () => {
 
   const renderListHeader = (): JSX.Element => {
     return (
-      <View style={{ marginTop: top + 15, marginBottom: 15 }}>
-        <Text style={styles.listTitle}>Menu options</Text>
+      <View style={{ ...homeStyles.container, marginTop: top + 15 }}>
+        <Text style={homeStyles.title}>Menu options</Text>
       </View>
     );
   };
 
   const renderSeparator = () => {
-    return (
-      <View style={{ borderBottomWidth: 1, opacity: 0.4, marginVertical: 8 }} />
-    );
+    return <View style={homeStyles.separator} />;
   };
 
   return (
-    <View style={styles.home}>
+    <View style={globalStyles.container}>
       <FlatList
         data={menuItems}
         renderItem={({ item }) => <MenuItem item={item} />}

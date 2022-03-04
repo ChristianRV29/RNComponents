@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   iconArrow: {
-    right: 0,
+    paddingRight: 0,
   },
 });
 
