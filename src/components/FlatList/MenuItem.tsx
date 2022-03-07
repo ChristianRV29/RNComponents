@@ -1,6 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { ItemProps } from '~src/@types/interfaces';
@@ -10,9 +12,14 @@ interface MenuItemProps {
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
-  const { name, icon } = item;
+  const { navigate } = useNavigation();
+
+  const { name, icon, screenName } = item;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigate(screenName as any)}
+    >
       <View style={styles.subContainer}>
         <Icon name={icon} color={'gray'} size={23} />
         <Text style={styles.itemLabel}>{name}</Text>
@@ -25,7 +32,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
           style={styles.iconArrow}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
