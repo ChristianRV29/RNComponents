@@ -34,6 +34,7 @@ export const animationStyles = StyleSheet.create({
     width: 150,
     height: 150,
     marginBottom: 20,
+    borderRadius: 10,
   },
   buttonsContainer: {
     width: '100%',
@@ -56,10 +57,10 @@ export const animationStyles = StyleSheet.create({
     fontSize: 16,
     marginRight: 2,
   },
-
-  purpleRed: {
-    backgroundColor: '#862f15',
+  blueBox: {
+    backgroundColor: '#2779b1',
     width: 150,
     height: 150,
+    borderRadius: 10,
   },
 });
