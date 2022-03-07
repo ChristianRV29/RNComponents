@@ -1,43 +1,13 @@
-import React, { useRef } from 'react';
-import { Animated, Text, View, Easing } from 'react-native';
+import React from 'react';
+import { Animated, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useAnimation } from '~src/hooks/useAnimation';
 
 import { animationStyles } from '~src/theme/appTheme';
 
 const Animation01Screen = () => {
-  const opacity = useRef(new Animated.Value(0)).current;
-  const boxPosition = useRef(new Animated.Value(-100)).current;
-
-  const fadeIn = () => {
-    Animated.timing(opacity, {
-      duration: 300,
-      useNativeDriver: true,
-      toValue: 1,
-    }).start();
-
-    Animated.timing(boxPosition, {
-      duration: 700,
-      useNativeDriver: true,
-      toValue: 0,
-      easing: Easing.bounce,
-    }).start();
-  };
-
-  const fadeOut = () => {
-    Animated.timing(opacity, {
-      duration: 300,
-      useNativeDriver: true,
-      toValue: 0,
-    }).start();
-
-    Animated.timing(boxPosition, {
-      duration: 700,
-      useNativeDriver: true,
-      toValue: -100,
-    }).start();
-  };
-
+  const { boxPosition, fadeIn, fadeOut, opacity, startMoving } = useAnimation();
   return (
     <View style={animationStyles.container}>
       <Animated.View
@@ -52,7 +22,13 @@ const Animation01Screen = () => {
         }}
       />
       <View style={animationStyles.buttonsContainer}>
-        <TouchableOpacity onPress={fadeIn} style={animationStyles.button}>
+        <TouchableOpacity
+          onPress={() => {
+            fadeIn();
+            startMoving(-100, 700);
+          }}
+          style={animationStyles.button}
+        >
           <Text style={animationStyles.buttonLabel}>Fade in</Text>
           <Icon name={'enter-outline'} size={30} color={'white'} />
         </TouchableOpacity>
