@@ -21,13 +21,13 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
       onPress={() => navigate(screenName as any)}
     >
       <View style={styles.subContainer}>
-        <Icon name={icon} color={'gray'} size={23} />
+        <Icon name={icon} color={'#5856D6'} size={23} />
         <Text style={styles.itemLabel}>{name}</Text>
       </View>
       <View>
         <Icon
           name={'arrow-forward-circle-outline'}
-          color={'gray'}
+          color={'#5856D6'}
           size={23}
           style={styles.iconArrow}
         />

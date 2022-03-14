@@ -10,7 +10,7 @@ const SwitchScreen = () => {
     isTired: true,
   });
 
-  const onChangeSwitch = (value: boolean, field: string) => {
+  const onChangeSwitch = (value: boolean, field: keyof typeof state) => {
     setState({
       ...state,
       [field]: value,
@@ -19,7 +19,7 @@ const SwitchScreen = () => {
 
   return (
     <View style={styles.container}>
-      <HeaderTitle title={'Switches'} />
+      <HeaderTitle title={'Switches'} color={'#5856D6'} />
       <View style={styles.switchContainer}>
         <Text style={styles.switchLabel}>isActive</Text>
         <CustomSwitch
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   switchContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: 5,
+    marginVertical: 5,
     justifyContent: 'space-between',
   },
   switchLabel: {
