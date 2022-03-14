@@ -17,7 +17,9 @@ const HomeScreen = () => {
         data={menuItems}
         renderItem={({ item }) => <MenuItem item={item} />}
         keyExtractor={item => item.name}
-        ListHeaderComponent={() => <Header title={'Menu options'} />}
+        ListHeaderComponent={() => (
+          <Header title={'Menu options'} color={'#5856D6'} />
+        )}
         ItemSeparatorComponent={renderSeparator}
       />
     </View>
