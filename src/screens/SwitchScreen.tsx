@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-import { Platform, StyleSheet, Switch, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import HeaderTitle from '~src/components/Header/Header';
+import CustomSwitch from '~src/components/Switch/CustomSwitch';
 
 const SwitchScreen = () => {
-  const [isEnable, setIsEnable] = useState<boolean>(false);
-
-  const toggleSwitch = () => setIsEnable(!isEnable);
-
   return (
     <View style={styles.container}>
       <HeaderTitle title={'Switches'} />
-      <Switch
-        trackColor={{ false: '#D9D9DB', true: '#9e9eda' }}
-        thumbColor={Platform.OS === 'android' ? '#5856D6' : ''}
-        onValueChange={toggleSwitch}
-        value={isEnable}
-      />
+      <CustomSwitch isOn={false} />
     </View>
   );
 };
