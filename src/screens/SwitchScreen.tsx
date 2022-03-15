@@ -8,6 +8,7 @@ const SwitchScreen = () => {
     isActive: false,
     isAngry: false,
     isTired: true,
+    isHungry: true,
   });
 
   const onChangeSwitch = (value: boolean, field: keyof typeof state) => {
@@ -39,6 +40,13 @@ const SwitchScreen = () => {
         <CustomSwitch
           isOn={state.isTired}
           onChange={(value: boolean) => onChangeSwitch(value, 'isTired')}
+        />
+      </View>
+      <View style={styles.switchContainer}>
+        <Text style={styles.switchLabel}>isHungry</Text>
+        <CustomSwitch
+          isOn={state.isHungry}
+          onChange={(value: boolean) => onChangeSwitch(value, 'isHungry')}
         />
       </View>
       <View style={styles.switchContainer}>
