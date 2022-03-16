@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, View } from 'react-native';
+import { Alert, Button, StyleSheet, View } from 'react-native';
 
 import HeaderTitle from '~src/components/Header/Header';
 import { globalStyles } from '~src/theme/appTheme';
@@ -26,12 +26,31 @@ const AlertScreen = () => {
       }
     );
 
+  const showPrompt = () =>
+    Alert.prompt(
+      'Title prompt',
+      'This would be the prompt message',
+      (value: any) => console.log('Value: ', value),
+      'plain-text',
+      'default-value', // The default value of the input
+      'numeric'
+    );
   return (
     <View style={globalStyles.container}>
       <HeaderTitle title={'Alerts'} color={'#5856D6'} />
-      <Button title={'Show alert'} onPress={showAlert} />
+      <View style={styles.buttonsContainer}>
+        <Button title={'Show alert'} onPress={showAlert} />
+        <Button title={'Show prompt'} onPress={showPrompt} />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonsContainer: {
+    height: 80,
+    justifyContent: 'space-between',
+  },
+});
 
 export default AlertScreen;
