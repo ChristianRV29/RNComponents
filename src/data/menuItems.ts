@@ -16,4 +16,9 @@ export const menuItems: ItemProps[] = [
     icon: 'toggle-outline',
     screenName: 'SwitchScreen',
   },
+  {
+    name: 'Alerts',
+    icon: 'alert-circle-outline',
+    screenName: 'AlertScreen',
+  },
 ];

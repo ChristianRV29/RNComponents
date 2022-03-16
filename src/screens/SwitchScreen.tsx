@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import HeaderTitle from '~src/components/Header/Header';
 import CustomSwitch from '~src/components/Switch/CustomSwitch';
+import { globalStyles } from '~src/theme/appTheme';
 
 const SwitchScreen = () => {
   const [state, setState] = useState({
@@ -18,7 +19,7 @@ const SwitchScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
       <HeaderTitle title={'Switches'} color={'#5856D6'} />
       <View style={styles.switchContainer}>
         <Text style={styles.switchLabel}>isActive</Text>
@@ -49,9 +50,6 @@ const SwitchScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    margin: 20,
-  },
   switchContainer: {
     alignItems: 'center',
     flexDirection: 'row',
