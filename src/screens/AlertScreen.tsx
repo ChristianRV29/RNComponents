@@ -22,6 +22,7 @@ const AlertScreen = () => {
       ],
       {
         cancelable: true,
+        onDismiss: () => console.log('On dismiss'),
       }
     );
 
