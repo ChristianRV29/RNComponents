@@ -6,17 +6,24 @@ import { globalStyles } from '~src/theme/appTheme';
 
 const AlertScreen = () => {
   const showAlert = () =>
-    Alert.alert('Alert title', 'This would be the alert message', [
+    Alert.alert(
+      'Alert title',
+      'This would be the alert message',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel pressed'),
+          style: 'destructive',
+        },
+        {
+          text: 'Ok',
+          onPress: () => console.log('Ok pressed'),
+        },
+      ],
       {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel pressed'),
-        style: 'destructive',
-      },
-      {
-        text: 'Ok',
-        onPress: () => console.log('Ok pressed'),
-      },
-    ]);
+        cancelable: true,
+      }
+    );
 
   return (
     <View style={globalStyles.container}>
