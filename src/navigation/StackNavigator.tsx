@@ -6,6 +6,7 @@ import Animation01Screen from '~src/screens/Animation01Screen';
 import Animation02Screen from '~src/screens/Animation02Screen';
 import SwitchScreen from '~src/screens/SwitchScreen';
 import AlertScreen from '~src/screens/AlertScreen';
+import TextInputScreen from '~src/screens/TextInputScreen';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -21,6 +22,7 @@ const StackNavigator = () => {
       <Screen name={'Animation02Screen'} component={Animation02Screen} />
       <Screen name={'SwitchScreen'} component={SwitchScreen} />
       <Screen name={'AlertScreen'} component={AlertScreen} />
+      <Screen name={'TextInputScreen'} component={TextInputScreen} />
     </Navigator>
   );
 };
