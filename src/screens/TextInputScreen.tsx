@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Text,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 import Header from '~src/components/Header/Header';
 import { globalStyles } from '~src/theme/appTheme';
@@ -16,33 +25,39 @@ const TextInputScreen = () => {
   };
 
   return (
-    <View style={globalStyles.container}>
-      <Header title="TextInputs" />
-      <TextInput
-        style={styles.textInput}
-        placeholder={'Enter your name'}
-        autoCorrect={false}
-        autoCapitalize={'words'}
-        onChangeText={(value: string) => onChangeState(value, 'name')}
-      />
-      <TextInput
-        style={styles.textInput}
-        placeholder={'Enter your email'}
-        autoCorrect={false}
-        autoCapitalize={'none'}
-        keyboardType={'email-address'}
-        onChangeText={(value: string) => onChangeState(value, 'email')}
-      />
-      <TextInput
-        style={styles.textInput}
-        placeholder={'Enter your phone'}
-        keyboardType={'numeric'}
-        onChangeText={(value: string) => onChangeState(value, 'phone')}
-      />
-      <View style={styles.stateContainer}>
-        <Text style={styles.stateText}>{JSON.stringify(form)}</Text>
-      </View>
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={globalStyles.container}>
+          <Header title="TextInputs" />
+          <TextInput
+            style={styles.textInput}
+            placeholder={'Enter your name'}
+            autoCorrect={false}
+            autoCapitalize={'words'}
+            onChangeText={(value: string) => onChangeState(value, 'name')}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder={'Enter your email'}
+            autoCorrect={false}
+            autoCapitalize={'none'}
+            keyboardType={'email-address'}
+            onChangeText={(value: string) => onChangeState(value, 'email')}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder={'Enter your phone'}
+            keyboardType={'numeric'}
+            onChangeText={(value: string) => onChangeState(value, 'phone')}
+          />
+          <View style={styles.stateContainer}>
+            <Text style={styles.stateText}>Pene</Text>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -58,8 +73,6 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   stateContainer: {
-    alignContent: 'center',
-    justifyContent: 'center',
     marginVertical: 20,
   },
   stateText: {
