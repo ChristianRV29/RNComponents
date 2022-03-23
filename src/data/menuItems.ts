@@ -26,4 +26,9 @@ export const menuItems: ItemProps[] = [
     icon: 'create-outline',
     screenName: 'TextInputScreen',
   },
+  {
+    name: 'Pull refresh',
+    icon: 'refresh-circle-outline',
+    screenName: 'PullToRefreshScreen',
+  },
 ];
