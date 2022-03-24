@@ -3,3 +3,8 @@ export interface ItemProps {
   icon: string;
   screenName: string;
 }
+
+export interface Brands {
+  brand: string;
+  data: string[];
+}
