@@ -14,7 +14,9 @@ const SectionListScreen = () => {
         keyExtractor={(item, index) => item + index}
         ListHeaderComponent={() => <HeaderTitle title={'Section list'} />}
         ListFooterComponent={() => (
-          <HeaderTitle title={`Total brands: ${brands.length}`} />
+          <View style={{ marginBottom: 70 }}>
+            <HeaderTitle title={`Total brands: ${brands.length}`} />
+          </View>
         )}
         renderItem={({ item }) => <Text>{item}</Text>}
         renderSectionHeader={({ section }) => (
@@ -26,6 +28,7 @@ const SectionListScreen = () => {
         stickySectionHeadersEnabled
         SectionSeparatorComponent={() => <Separator />}
         ItemSeparatorComponent={() => <Separator />}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
