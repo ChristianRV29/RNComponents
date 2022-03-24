@@ -2,7 +2,7 @@ import React from 'react';
 import { SectionList, View, Text, StyleSheet } from 'react-native';
 
 import { brands } from '~src/data/sectionListItems';
-import { globalStyles } from '../theme/appTheme';
+import { globalStyles } from '~src/theme/appTheme';
 import HeaderTitle from '~src/components/Header/Header';
 import Separator from '~src/components/Separator/Index';
 
@@ -14,7 +14,7 @@ const SectionListScreen = () => {
         keyExtractor={(item, index) => item + index}
         ListHeaderComponent={() => <HeaderTitle title={'Section list'} />}
         ListFooterComponent={() => (
-          <View style={{ marginBottom: 70 }}>
+          <View style={styles.footerContainer}>
             <HeaderTitle title={`Total brands: ${brands.length}`} />
           </View>
         )}
@@ -37,6 +37,9 @@ const SectionListScreen = () => {
 const styles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
+  },
+  footerContainer: {
+    marginBottom: 70,
   },
 });
 
