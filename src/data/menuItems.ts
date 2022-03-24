@@ -36,4 +36,9 @@ export const menuItems: ItemProps[] = [
     icon: 'list-circle-outline',
     screenName: 'SectionListScreen',
   },
+  {
+    name: 'Modal',
+    icon: 'browsers-outline',
+    screenName: 'ModalScreen',
+  },
 ];
