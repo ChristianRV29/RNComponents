@@ -1,16 +1,13 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
-import Header from '~src/components/Header/Header';
 
+import Header from '~src/components/Header/Header';
 import MenuItem from '~src/components/FlatList/MenuItem';
 import { menuItems } from '~src/data/menuItems';
-import { globalStyles, homeStyles } from '~src/theme/appTheme';
+import { globalStyles } from '~src/theme/appTheme';
+import Separator from '~src/components/Separator/Index';
 
 const HomeScreen = () => {
-  const renderSeparator = () => {
-    return <View style={homeStyles.separator} />;
-  };
-
   return (
     <View style={globalStyles.container}>
       <FlatList
@@ -20,7 +17,7 @@ const HomeScreen = () => {
         ListHeaderComponent={() => (
           <Header title={'Menu options'} color={'#5856D6'} />
         )}
-        ItemSeparatorComponent={renderSeparator}
+        ItemSeparatorComponent={() => <Separator />}
       />
     </View>
   );

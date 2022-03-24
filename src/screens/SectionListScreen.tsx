@@ -4,6 +4,7 @@ import { SectionList, View, Text, StyleSheet } from 'react-native';
 import { brands } from '~src/data/sectionListItems';
 import { globalStyles } from '../theme/appTheme';
 import HeaderTitle from '~src/components/Header/Header';
+import Separator from '~src/components/Separator/Index';
 
 const SectionListScreen = () => {
   return (
@@ -23,6 +24,8 @@ const SectionListScreen = () => {
           <HeaderTitle title={`Total items: ${section.data.length}`} />
         )}
         stickySectionHeadersEnabled
+        SectionSeparatorComponent={() => <Separator />}
+        ItemSeparatorComponent={() => <Separator />}
       />
     </View>
   );
