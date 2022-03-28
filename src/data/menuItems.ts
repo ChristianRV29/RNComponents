@@ -41,4 +41,9 @@ export const menuItems: ItemProps[] = [
     icon: 'browsers-outline',
     screenName: 'ModalScreen',
   },
+  {
+    name: 'Infinite scroll',
+    icon: 'infinite-outline',
+    screenName: 'InfiniteScrollScreen',
+  },
 ];
