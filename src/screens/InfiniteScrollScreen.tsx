@@ -21,7 +21,12 @@ const InfiniteScrollScreen = () => {
   };
 
   const renderItem = (item: number) => {
-    return <AnimatedImage uri={`https://picsum.photos/id/${item}/500/400`} />;
+    return (
+      <AnimatedImage
+        uri={`https://picsum.photos/id/${item}/500/400`}
+        style={styles.image}
+      />
+    );
   };
 
   return (
@@ -42,6 +47,10 @@ const InfiniteScrollScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  image: {
+    width: '100%',
+    height: 400,
   },
 });
 
