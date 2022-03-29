@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import {
-  FlatList,
-  View,
-  StyleSheet,
-  Image,
-  ActivityIndicator,
-} from 'react-native';
+import { FlatList, View, StyleSheet, ActivityIndicator } from 'react-native';
+import AnimatedImage from '~src/components/AnimatedImage';
 
 import HeaderTitle from '~src/components/Header/Header';
 
@@ -27,8 +22,8 @@ const InfiniteScrollScreen = () => {
 
   const renderItem = (item: number) => {
     return (
-      <Image
-        source={{ uri: `https://picsum.photos/id/${item}/500/400` }}
+      <AnimatedImage
+        uri={`https://picsum.photos/id/${item}/500/400`}
         style={styles.image}
       />
     );
@@ -52,7 +47,6 @@ const InfiniteScrollScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
   },
   image: {
     width: '100%',
