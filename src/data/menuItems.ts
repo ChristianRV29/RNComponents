@@ -48,7 +48,7 @@ export const menuItems: ItemProps[] = [
   },
   {
     name: 'SnapCarousel',
-    icon: 'barcode-outline',
+    icon: 'ellipsis-horizontal-circle-outline',
     screenName: 'CarouselScreen',
   },
 ];
