@@ -46,4 +46,9 @@ export const menuItems: ItemProps[] = [
     icon: 'infinite-outline',
     screenName: 'InfiniteScrollScreen',
   },
+  {
+    name: 'SnapCarousel',
+    icon: 'ellipsis-horizontal-circle-outline',
+    screenName: 'CarouselScreen',
+  },
 ];
