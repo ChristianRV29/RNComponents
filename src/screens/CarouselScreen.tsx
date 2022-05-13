@@ -90,12 +90,12 @@ const CarouselScreen = ({ navigation }) => {
             style={styles.buttonContainer}
             onPress={() => goBack()}
           >
+            <Text style={styles.buttonText}>Go home</Text>
             <Icon
               size={30}
-              name={'arrow-back-circle-outline'}
+              name={'arrow-forward-circle-outline'}
               color={'white'}
             />
-            <Text style={styles.buttonText}>Go back</Text>
           </TouchableOpacity>
         </Animated.View>
       </View>
