@@ -7,8 +7,14 @@ import {
   View,
   Image,
   StyleSheet,
+  Animated,
 } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
+import { useAnimation } from '~src/hooks/useAnimation';
 
 const { height: windowHeight, width: windowWidth } = Dimensions.get('window');
 
@@ -36,8 +42,20 @@ const items: Slide[] = [
   },
 ];
 
-const CarouselScreen = () => {
+const CarouselScreen = ({ navigation }) => {
+  const { goBack } = useNavigation();
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const { opacity, fadeIn, fadeOut } = useAnimation();
+
+  const handleItems = (index: number) => {
+    setActiveIndex(index);
+    if (index === items.length - 1) {
+      fadeIn();
+    } else {
+      fadeOut();
+    }
+  };
 
   const renderItem = (item: Slide) => {
     return (
@@ -59,18 +77,28 @@ const CarouselScreen = () => {
         itemWidth={windowWidth}
         windowSize={undefined}
         layout={'default'}
-        onSnapToItem={index => setActiveIndex(index)}
+        onSnapToItem={index => handleItems(index)}
       />
-      <Pagination
-        dotsLength={items.length}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          backgroundColor: '#5856D6',
-        }}
-        activeDotIndex={activeIndex}
-      />
+      <View style={styles.optionsContainer}>
+        <Pagination
+          dotsLength={items.length}
+          dotStyle={styles.dotStyle}
+          activeDotIndex={activeIndex}
+        />
+        <Animated.View style={{ ...styles.buttonAnimated, opacity }}>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => goBack()}
+          >
+            <Icon
+              size={30}
+              name={'arrow-back-circle-outline'}
+              color={'white'}
+            />
+            <Text style={styles.buttonText}>Go back</Text>
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -99,6 +127,37 @@ const styles = StyleSheet.create({
   },
   slideDescriptionItem: {
     fontSize: 16,
+  },
+  dotStyle: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#5856D6',
+  },
+  optionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  buttonAnimated: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 25,
+    backgroundColor: '#5856D6',
+    width: 140,
+    height: 50,
+    marginHorizontal: 25,
+    marginVertical: 10,
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  buttonText: {
+    marginHorizontal: 10,
+    color: 'white',
+    fontSize: 15,
   },
 });
 
