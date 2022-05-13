@@ -42,7 +42,7 @@ const items: Slide[] = [
   },
 ];
 
-const CarouselScreen = ({ navigation }) => {
+const CarouselScreen = () => {
   const { goBack } = useNavigation();
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -51,9 +51,9 @@ const CarouselScreen = ({ navigation }) => {
   const handleItems = (index: number) => {
     setActiveIndex(index);
     if (index === items.length - 1) {
-      fadeIn();
+      fadeIn(100);
     } else {
-      fadeOut();
+      fadeOut(100);
     }
   };
 

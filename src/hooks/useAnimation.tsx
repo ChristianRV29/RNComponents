@@ -24,9 +24,9 @@ export const useAnimation = () => {
     }).start();
   };
 
-  const fadeOut = () => {
+  const fadeOut = (duration: number = 300) => {
     Animated.timing(opacity, {
-      duration: 300,
+      duration,
       useNativeDriver: true,
       toValue: 0,
     }).start();
