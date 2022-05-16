@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 import React from 'react';
 
 import { View, Text, StyleSheet } from 'react-native';
@@ -13,6 +13,7 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   const { navigate } = useNavigation();
+  const { colors } = useTheme();
 
   const { name, icon, screenName } = item;
   return (
@@ -22,7 +23,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     >
       <View style={styles.subContainer}>
         <Icon name={icon} color={'#5856D6'} size={23} />
-        <Text style={styles.itemLabel}>{name}</Text>
+        <Text style={{ ...styles.itemLabel, color: colors.text }}>{name}</Text>
       </View>
       <View>
         <Icon

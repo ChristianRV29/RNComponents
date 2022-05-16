@@ -51,4 +51,9 @@ export const menuItems: ItemProps[] = [
     icon: 'ellipsis-horizontal-circle-outline',
     screenName: 'CarouselScreen',
   },
+  {
+    name: 'Themes',
+    icon: 'flask-outline',
+    screenName: 'ThemeScreen',
+  },
 ];
