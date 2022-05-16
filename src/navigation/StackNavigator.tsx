@@ -20,9 +20,6 @@ const StackNavigator = () => {
     <Navigator
       screenOptions={{
         headerShown: false,
-        cardStyle: {
-          backgroundColor: 'white',
-        },
       }}
     >
       <Screen name={'HomeScreen'} component={HomeScreen} />
