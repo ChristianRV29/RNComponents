@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import React, { createContext } from 'react';
 
 interface ThemeContextProps {
   theme: any;
@@ -11,8 +11,12 @@ export const ThemeContext = createContext({} as ThemeContextProps);
 export const ThemeProvider = ({ children }: any) => {
   const theme = {};
 
-  const setDarkTheme = () => {};
-  const setLightTheme = () => {};
+  const setDarkTheme = () => {
+    console.log('🚀 ~ Changing to dark');
+  };
+  const setLightTheme = () => {
+    console.log('🚀 ~ Changing to light');
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, setDarkTheme, setLightTheme }}>
