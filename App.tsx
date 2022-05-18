@@ -12,14 +12,10 @@ LogBox.ignoreLogs([
 
 const App = () => {
   return (
-    <AppState>
+    <ThemeProvider>
       <StackNavigator />
-    </AppState>
+    </ThemeProvider>
   );
-};
-
-const AppState = ({ children }: any) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 export default App;
