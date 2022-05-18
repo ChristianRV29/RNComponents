@@ -1,3 +1,4 @@
+import { Theme } from '@react-navigation/native';
 import React, { createContext } from 'react';
 
 interface ThemeContextProps {
@@ -9,7 +10,17 @@ interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps);
 
 export const ThemeProvider = ({ children }: any) => {
-  const theme = {};
+  const theme: Theme = {
+    dark: false,
+    colors: {
+      primary: '',
+      background: '',
+      card: '',
+      text: '',
+      border: '',
+      notification: '',
+    },
+  };
 
   const setDarkTheme = () => {
     console.log('🚀 ~ Changing to dark');
