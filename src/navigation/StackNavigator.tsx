@@ -13,29 +13,46 @@ import ModalScreen from '~src/screens/ModalScreen';
 import InfiniteScrollScreen from '../screens/InfiniteScrollScreen';
 import CarouselScreen from '~src/screens/CarouselScreen';
 import ThemeScreen from '~src/screens/ThemeScreen';
+import {
+  NavigationContainer,
+  DarkTheme,
+  Theme,
+} from '@react-navigation/native';
 
 const { Navigator, Screen } = createStackNavigator();
 
+const customTheme: Theme = {
+  dark: true,
+  colors: {
+    ...DarkTheme.colors,
+  },
+};
+
 const StackNavigator = () => {
   return (
-    <Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Screen name={'HomeScreen'} component={HomeScreen} />
-      <Screen name={'Animation01Screen'} component={Animation01Screen} />
-      <Screen name={'Animation02Screen'} component={Animation02Screen} />
-      <Screen name={'SwitchScreen'} component={SwitchScreen} />
-      <Screen name={'AlertScreen'} component={AlertScreen} />
-      <Screen name={'TextInputScreen'} component={TextInputScreen} />
-      <Screen name={'PullToRefreshScreen'} component={PullToRefreshScreen} />
-      <Screen name={'SectionListScreen'} component={SectionListScreen} />
-      <Screen name={'ModalScreen'} component={ModalScreen} />
-      <Screen name={'InfiniteScrollScreen'} component={InfiniteScrollScreen} />
-      <Screen name={'CarouselScreen'} component={CarouselScreen} />
-      <Screen name={'ThemeScreen'} component={ThemeScreen} />
-    </Navigator>
+    <NavigationContainer theme={customTheme}>
+      <Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Screen name={'HomeScreen'} component={HomeScreen} />
+        <Screen name={'Animation01Screen'} component={Animation01Screen} />
+        <Screen name={'Animation02Screen'} component={Animation02Screen} />
+        <Screen name={'SwitchScreen'} component={SwitchScreen} />
+        <Screen name={'AlertScreen'} component={AlertScreen} />
+        <Screen name={'TextInputScreen'} component={TextInputScreen} />
+        <Screen name={'PullToRefreshScreen'} component={PullToRefreshScreen} />
+        <Screen name={'SectionListScreen'} component={SectionListScreen} />
+        <Screen name={'ModalScreen'} component={ModalScreen} />
+        <Screen
+          name={'InfiniteScrollScreen'}
+          component={InfiniteScrollScreen}
+        />
+        <Screen name={'CarouselScreen'} component={CarouselScreen} />
+        <Screen name={'ThemeScreen'} component={ThemeScreen} />
+      </Navigator>
+    </NavigationContainer>
   );
 };
 
