@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Alert, Button, StyleSheet, View } from 'react-native';
 
 import HeaderTitle from '~src/components/Header/Header';
+import { ThemeContext } from '~src/context/theme/themeContext';
 import { globalStyles } from '~src/theme/appTheme';
 
 const AlertScreen = () => {
+  const { theme } = useContext(ThemeContext);
+
   const showAlert = () =>
     Alert.alert(
       'Alert title',
@@ -37,7 +40,7 @@ const AlertScreen = () => {
     );
   return (
     <View style={globalStyles.container}>
-      <HeaderTitle title={'Alerts'} color={'#5856D6'} />
+      <HeaderTitle title={'Alerts'} color={theme.colors.primary} />
       <View style={styles.buttonsContainer}>
         <Button title={'Show alert'} onPress={showAlert} />
         <Button title={'Show prompt'} onPress={showPrompt} />
