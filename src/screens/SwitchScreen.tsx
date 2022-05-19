@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import HeaderTitle from '~src/components/Header/Header';
 import CustomSwitch from '~src/components/Switch/CustomSwitch';
+import { ThemeContext } from '~src/context/theme/themeContext';
 import { globalStyles } from '~src/theme/appTheme';
 
 const SwitchScreen = () => {
+  const { theme } = useContext(ThemeContext);
+
   const [state, setState] = useState({
     isActive: false,
     isAngry: false,
@@ -20,7 +23,7 @@ const SwitchScreen = () => {
 
   return (
     <View style={globalStyles.container}>
-      <HeaderTitle title={'Switches'} color={'#5856D6'} />
+      <HeaderTitle title={'Switches'} color={theme.colors.primary} />
       <View style={styles.switchContainer}>
         <Text style={styles.switchLabel}>isActive</Text>
         <CustomSwitch
