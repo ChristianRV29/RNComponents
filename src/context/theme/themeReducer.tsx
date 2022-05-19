@@ -12,12 +12,12 @@ export const lightTheme: ThemeState = {
   dark: false,
   dividerColor: 'rgba(0,0,0,0.7)',
   colors: {
-    primary: 'rgb(255, 45, 85)',
+    primary: 'rgb(49, 82, 229)',
     background: 'rgb(242, 242, 242)',
-    card: 'rgb(255, 255, 255)',
-    text: 'rgb(28, 28, 30)',
-    border: 'rgb(199, 199, 204)',
-    notification: 'rgb(255, 69, 58)',
+    card: 'rgb(0, 111, 155)',
+    text: 'rgb(0, 0, 0)',
+    border: 'rgb(219, 219, 244)',
+    notification: 'rgb(156, 144, 221)',
   },
 };
 
@@ -26,12 +26,12 @@ const darkTheme: ThemeState = {
   dark: true,
   dividerColor: 'rgba(0,0,0,0.7)',
   colors: {
-    primary: 'rgb(82, 49, 55)',
-    background: 'rgb(11, 8, 8)',
-    card: 'rgb(255, 255, 255)',
+    primary: 'rgb(168, 235, 234)',
+    background: 'rgb(12, 10, 44)',
+    card: 'rgb(97, 136, 164)',
     text: 'rgb(255, 255, 255)',
-    border: 'rgb(34, 34, 169)',
-    notification: 'rgb(113, 84, 83)',
+    border: 'rgb(140, 140, 194)',
+    notification: 'rgb(57, 78, 125)',
   },
 };
 
