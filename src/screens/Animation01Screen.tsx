@@ -33,7 +33,7 @@ const Animation01Screen = () => {
           }}
           style={{
             ...animationStyles.button,
-            backgroundColor: theme.colors.notification,
+            backgroundColor: theme.colors.card,
           }}
         >
           <Text style={animationStyles.buttonLabel}>Fade in</Text>
@@ -43,7 +43,7 @@ const Animation01Screen = () => {
           onPress={() => fadeOut()}
           style={{
             ...animationStyles.button,
-            backgroundColor: theme.colors.border,
+            backgroundColor: theme.colors.notification,
           }}
         >
           <Text style={animationStyles.buttonLabel}>Fade out</Text>

@@ -25,28 +25,36 @@ const SwitchScreen = () => {
     <View style={globalStyles.container}>
       <HeaderTitle title={'Switches'} color={theme.colors.primary} />
       <View style={styles.switchContainer}>
-        <Text style={styles.switchLabel}>isActive</Text>
+        <Text style={{ ...styles.switchLabel, color: theme.colors.text }}>
+          isActive
+        </Text>
         <CustomSwitch
           isOn={state.isActive}
           onChange={(value: boolean) => onChangeSwitch(value, 'isActive')}
         />
       </View>
       <View style={styles.switchContainer}>
-        <Text style={styles.switchLabel}>isAngry</Text>
+        <Text style={{ ...styles.switchLabel, color: theme.colors.text }}>
+          isAngry
+        </Text>
         <CustomSwitch
           isOn={state.isAngry}
           onChange={(value: boolean) => onChangeSwitch(value, 'isAngry')}
         />
       </View>
       <View style={styles.switchContainer}>
-        <Text style={styles.switchLabel}>isTired</Text>
+        <Text style={{ ...styles.switchLabel, color: theme.colors.text }}>
+          isTired
+        </Text>
         <CustomSwitch
           isOn={state.isTired}
           onChange={(value: boolean) => onChangeSwitch(value, 'isTired')}
         />
       </View>
       <View style={styles.switchContainer}>
-        <Text style={styles.switchLabel}>{JSON.stringify(state, null, 5)}</Text>
+        <Text style={{ ...styles.switchLabel, color: theme.colors.text }}>
+          {JSON.stringify(state, null, 5)}
+        </Text>
       </View>
     </View>
   );
@@ -61,7 +69,6 @@ const styles = StyleSheet.create({
   },
   switchLabel: {
     fontSize: 20,
-    color: 'black',
   },
 });
 

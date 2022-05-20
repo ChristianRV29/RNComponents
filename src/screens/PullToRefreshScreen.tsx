@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   ScrollView,
   RefreshControl,
@@ -10,8 +10,10 @@ import {
 
 import { globalStyles } from '~src/theme/appTheme';
 import HeaderTitle from '~src/components/Header/Header';
+import { ThemeContext } from '~src/context/theme/themeContext';
 
 const PullToRefreshScreen = () => {
+  const { theme } = useContext(ThemeContext);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [data, setData] = useState<string>();
 
@@ -31,9 +33,9 @@ const PullToRefreshScreen = () => {
           refreshing={isRefreshing}
           onRefresh={onRefresh}
           progressViewOffset={10}
-          progressBackgroundColor={'#5856D6'}
+          progressBackgroundColor={theme.colors.primary}
           colors={['blue', 'red', 'orange']}
-          style={{ backgroundColor: '#5856D6' }}
+          style={{ backgroundColor: theme.colors.notification }}
           tintColor={'white'}
           title={'Refreshing...'}
           titleColor={'white'}
@@ -41,7 +43,7 @@ const PullToRefreshScreen = () => {
       }
       style={globalStyles.container}
     >
-      <HeaderTitle title={'Pull to refresh'} />
+      <HeaderTitle title={'Pull to refresh'} color={theme.colors.primary} />
 
       {data && (
         <View style={styles.messageContainer}>

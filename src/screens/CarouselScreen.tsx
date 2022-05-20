@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   SafeAreaView,
   Text,
@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 import { useAnimation } from '~src/hooks/useAnimation';
+import { ThemeContext } from '~src/context/theme/themeContext';
 
 const { height: windowHeight, width: windowWidth } = Dimensions.get('window');
 
@@ -43,9 +44,9 @@ const items: Slide[] = [
 ];
 
 const CarouselScreen = () => {
+  const { theme } = useContext(ThemeContext);
   const { goBack } = useNavigation();
   const [activeIndex, setActiveIndex] = useState<number>(0);
-
   const { opacity, fadeIn, fadeOut } = useAnimation();
 
   const handleItems = (index: number) => {
@@ -59,10 +60,21 @@ const CarouselScreen = () => {
 
   const renderItem = (item: Slide) => {
     return (
-      <View style={styles.slideItemContainer}>
+      <View
+        style={{
+          ...styles.slideItemContainer,
+          backgroundColor: theme.colors.background,
+        }}
+      >
         <Image source={item.img} style={styles.slideImageItem} />
-        <Text style={styles.slideTitleItem}>{item.title}</Text>
-        <Text style={styles.slideDescriptionItem}>{item.desc}</Text>
+        <Text style={{ ...styles.slideTitleItem, color: theme.colors.text }}>
+          {item.title}
+        </Text>
+        <Text
+          style={{ ...styles.slideDescriptionItem, color: theme.colors.text }}
+        >
+          {item.desc}
+        </Text>
       </View>
     );
   };
@@ -82,10 +94,19 @@ const CarouselScreen = () => {
       <View style={styles.optionsContainer}>
         <Pagination
           dotsLength={items.length}
-          dotStyle={styles.dotStyle}
+          dotStyle={{
+            ...styles.dotStyle,
+            backgroundColor: theme.colors.primary,
+          }}
           activeDotIndex={activeIndex}
         />
-        <Animated.View style={{ ...styles.buttonAnimated, opacity }}>
+        <Animated.View
+          style={{
+            ...styles.buttonAnimated,
+            opacity,
+            backgroundColor: theme.colors.card,
+          }}
+        >
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={() => goBack()}
@@ -123,7 +144,6 @@ const styles = StyleSheet.create({
   slideTitleItem: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#5856D6',
   },
   slideDescriptionItem: {
     fontSize: 16,
@@ -132,7 +152,6 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: '#5856D6',
   },
   optionsContainer: {
     flexDirection: 'row',
@@ -143,7 +162,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 25,
-    backgroundColor: '#5856D6',
     width: 140,
     height: 50,
     marginHorizontal: 25,

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FlatList, View, StyleSheet, ActivityIndicator } from 'react-native';
 import AnimatedImage from '~src/components/AnimatedImage';
 
 import HeaderTitle from '~src/components/Header/Header';
+import { ThemeContext } from '~src/context/theme/themeContext';
 
 const InfiniteScrollScreen = () => {
+  const { theme } = useContext(ThemeContext);
+
   const [numbers, setNumbers] = useState<number[]>([
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
   ]);
@@ -38,7 +41,9 @@ const InfiniteScrollScreen = () => {
         ListHeaderComponent={() => <HeaderTitle title={'Inifite scroll'} />}
         onEndReached={loadMore}
         onEndReachedThreshold={0.5}
-        ListFooterComponent={<ActivityIndicator size={25} color={'5856D6'} />}
+        ListFooterComponent={
+          <ActivityIndicator size={25} color={theme.colors.primary} />
+        }
       />
     </View>
   );
