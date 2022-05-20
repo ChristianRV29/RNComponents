@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginVertical: 10,
     borderRadius: 10,
-    borderColor: 'rgba(0, 0, 0, 0.8)',
     fontSize: 20,
   },
   stateContainer: {
