@@ -21,7 +21,7 @@ export const lightTheme: ThemeState = {
   },
 };
 
-const darkTheme: ThemeState = {
+export const darkTheme: ThemeState = {
   currentTheme: 'Dark',
   dark: true,
   dividerColor: 'rgba(0,0,0,0.7)',
